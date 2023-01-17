@@ -35,13 +35,14 @@ Veuillez run le fichier main.py.
 Lors du lancement du programme, vous pourrez soit enregistrer les visages sur une nouvelle image, soit identifier une personne devant la webcam  <br> <br>
 ![plot](./img_readme/main_choix.PNG) <br> <br> <br>
 
-### Enregistrer les visages présents sur une image <br> <br> <br>
-![plot](./img_readme/dossiers_img_1.PNG)  <br> <br>
-Placez l'image à analyser dans le dossier img_a_ajouter.  <br> <br> <br>
-Puis lorsque le programme ce lance, tapez 1.  <br><br><br>
+### Enregistrer les visages présents sur une image <br> <br> 
+Placez l'image à analyser dans le dossier img_a_ajouter.  <br> <br>
+![plot](./img_readme/dossiers_img_1.PNG)  <br> <br> <br>
+Puis lorsque le programme ce lance, tapez 1.  <br><br>
 
-![plot](./img_readme/nom_fichier.PNG) <br> <br>
 Rentrez le nom de l'image placée dans le dossier avec l'extension du fichier (.png ou .jpeg). <br> <br>
+
+![plot](./img_readme/nom_fichier.PNG) <br> <br><br>
 
 Une fois que cela est fait l'image que vous aurez tapés s'ouvrira dans une fenêtre:  <br><br>
 
