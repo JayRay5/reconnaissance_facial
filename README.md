@@ -86,4 +86,6 @@ Le chiffre au dessus de chaque phrase est la 'différence' qu'il y a entre le vi
 J'ai fixé la tolérence à 0.6, c'est à dire que si cette différence est inférieur à 0.6, alors le programme considère que ceux sont les mêmes personnes. <br>
 Sinon il considère que ceux sont des personnes différentes.  <br> <br>
 
+Lorsque la fenêtre de la webcam est ouverte, appuyez sur la touche q pour l'arrêter.
+
 
