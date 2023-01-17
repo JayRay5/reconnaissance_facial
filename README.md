@@ -84,5 +84,7 @@ Dans le cas contraire, ce message s'affiche: <br><br>
 
 Le chiffre au dessus de chaque phrase est la différence qu'il y a entre le visage sur l'image et le visage devant la webcam. <br>
 J'ai fixé la tolérence à 0.6, c'est à dire que si cette différence est inférieur à 0.6, alors le programme considère que ceux sont les mêmes personnes. <br>
-Sinon il montre que ceux sont des personnes différentes.
+Sinon il considère que ceux sont des personnes différentes.  <br> <br>
+
+Attention, lorsque le visage devant la webcam est trop de profil ou un peu caché par un obstacle, la différnce avec l'image enregistrée augmente et le programme peut indiquer que ce ne sont pas les mêmes personnes.
 
