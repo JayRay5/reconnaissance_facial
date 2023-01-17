@@ -21,11 +21,11 @@ Pour installer ce projet, vous devrez tout d'abord suivre ces étapes:
 * Ensuite une fois que c'est fait, si vous avez dejà installés Python, vous pouvez executer les commandes ci dessous dans votre terminal:
 
 ```
-$ pip install numpy
-$ pip install opencv-python
-$ pip install cmake
-$ pip install dlib
-$ pip install imutils
+ pip install numpy
+ pip install opencv-python
+ pip install cmake
+ pip install dlib
+ pip install imutils
 
 ```
 Une fois que ceci est fait, vous pouvez lancer le projet.
