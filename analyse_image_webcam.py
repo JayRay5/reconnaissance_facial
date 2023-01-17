@@ -24,54 +24,6 @@ pose_predictor_68_point = dlib.shape_predictor(
     "shape_predictor_68_face_landmarks.dat")
 
 
-# liste contenant les noms des personnes detectées sur la photos
-galerie = []
-
-
-# fonction qui prend en paramètre une image et qui retourne la liste des personnes présentent sur cette image
-def newFaces(i):
-
-    imA = cv.imread(i)
-    imB = cv.imread(i)
-
-    cv.imshow("img", imA)
-    cv.waitKey(0)
-
-    imG = cv.cvtColor(imA, cv.COLOR_BGR2GRAY)
-
-    faces = face_cascade.detectMultiScale(imG)
-    for (x, y, w, h) in faces:
-        cv.rectangle(imA, (x, y), (x+w, y+h), (255, 255, 0), 2)
-
-    if (len(faces) >= 0):
-        message = 'visage(s) detecte(s)'
-        cv.putText(imA, message, (1, 30),
-                   cv.FONT_HERSHEY_PLAIN, 1, (0, 255, 0))
-
-    cv.imshow("img", imA)
-    cv.waitKey(0)
-
-    i = 0
-    for (x, y, w, h) in faces:
-
-        crop_img = imB[y:y+h+12, x:x+w+12]
-
-        cv.imshow('image', crop_img)
-        cv.waitKey(0)
-
-        name = input("Entrez le nom de la personne")
-        first_name = input("Entrez le prenom de la personne")
-        cv.imwrite(name + "_" + first_name, crop_img)
-
-        print('image recadré enregistrée')
-
-        galerie.append(name + "_" + first_name)
-
-        i += 1
-    return galerie
-
-
-
 # fonction qui prend en paramètre une image,
 # detetecte les visages sur l'images, repère les landmarks, calcule un ou des vecteur(s) qui décrit/décrivent le ou les visages détectés
 # retourne une liste de visages encodés, une liste de visage (image) et une liste de landmarks
@@ -105,7 +57,7 @@ def comparImage(face_encoding_list, faces, landmarks_list, imageChoisis):
         face_encoding_list = face_encoding_list[0].reshape(
             face_encoding_list[0].shape[0], 1)
         face_encoding_list_known, face_known, landmarks_know = analyzeFace(
-            cv.imread(imageChoisis))
+            cv.imread('img/'+imageChoisis))
 
         face_encoding_list_known = face_encoding_list_known[0].reshape(
             face_encoding_list_known[0].shape[0], 1)
@@ -116,15 +68,28 @@ def comparImage(face_encoding_list, faces, landmarks_list, imageChoisis):
             print("[INFO] Même personne que l'image choisis")
         else:
             print("[INFO] Personne différente")
-
+            
+    #Afin d'éviter une erreur lorsqu'il n'y a pas de visage devant la webcam
     except IndexError:
 
         print("[INFO] Pas de visage(s) détecté(s)")
 
 #fonction qui permet de comparer les visages de la webcam à ceux sur l'image choisis par l'utilisateur
 def identify():
-    imageChoisis = input(
-        "écrivez le nom de l'image que vous voulez comparez \n avec la personne devant votre webcam : ")
+    im_verif=False
+    while im_verif==False:
+        try:
+            imageChoisis = input(
+            "écrivez le nom de l'image du dossier img que vous voulez comparez \n avec la personne devant votre webcam : ")
+            im=cv.imread("img/"+imageChoisis)
+            if type(im)==np.ndarray:
+                im_verif=True
+            cv.imshow(im)
+            cv.waitKey(100)
+            
+        except:
+            print("L'image choisis n'a pas pu être ouverte, \nêtes vous sûr que l'image choisie se situe dans le dossier 'img'")
+            
     print('[INFO] Starting Webcam')
     webcam = cv.VideoCapture(0)
     # pour recuperer le flux video et pas seulement une photo
@@ -141,6 +106,8 @@ def identify():
         comparImage(face_encoding_list_unknown, faces_unknown,
                     landmarks_list_unknows, imageChoisis)
         cv.imshow('Identification', frame)
+        
+        #condition afin de fermer la webcam
         if cv.waitKey(1) & 0xFF == ord('q'):
             break
 
