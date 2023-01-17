@@ -4,7 +4,7 @@ M'interressant au computer vision, j'ai voulu comprendre comment les systèmes d
 Et pour cela, quoi de mieux que d'en coder un? <br>
 
 ## Table des matières
-* [Présentation du projet](#presentation-du-projet)
+* [Présentation du projet](#presentation)
 * [Installation des librairies](#installation-des-librairies)
 * [Utilisation](#utilisation)
 
