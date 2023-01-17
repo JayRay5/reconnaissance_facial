@@ -6,7 +6,6 @@ Et pour cela, quoi de mieux que d'en coder un? <br>
 ## Table des matières
 * [Présentation du projet](#présentation)
 * [Installation des librairies](#installation-des-librairies)
-  *[Installation des librairies](#installation-des-librairies)
 * [Utilisation](#utilisation)
 
 ## Présentation
@@ -45,25 +44,48 @@ Rentrez le nom de l'image placée dans le dossier avec l'extension du fichier (.
 
 ![plot](./img_readme/nom_fichier.PNG) <br> <br><br>
 
-Une fois que cela est fait l'image que vous aurez tapés s'ouvrira dans une fenêtre:  <br><br>
+Une fois que cela est fait l'image que vous aurez rentré s'ouvrira dans une fenêtre:  <br><br>
 
 ![plot](./img_readme/famille_flou.png)  <br><br>
 (J'ai volontairement flouté les visages qui ne sont pas le mien) <br> <br>
 
-Puis lorsque vous l'aurez fermée, une deuxième s'ouvrira avec les visages détectés encadrés en bleu:  <br> <br>
+Puis lorsque vous l'aurez fermé, une deuxième s'ouvrira avec les visages détectés encadrés en bleu:  <br> <br>
 
 ![plot](./img_readme/famille_detect_flou.png)  <br> <br> <br>
 
 Ensuite une image s'ouvrira avec le premier visage détecté:  <br><br>
 ![plot](./img_readme/img_coupee.PNG)  <br> <br> <br>
 
-Une fois que vous aurez fermés la fenêtre, vous devrez entrer le nom et le prenom de la personne:  <br> <br>
+Lorsque que vous aurez fermé la fenêtre, vous devrez entrer le nom et le prenom de la personne:  <br> <br>
 ![plot](./img_readme/shell_nom_prenom.PNG)  <br> <br> <br>
 
 Une fois cela fait, la même chose vous sera demandée pour chaque visage. <br> <br>
 
 Chaque image sera enregistrée dans le dossier 'img', avec pour nom de fichier nom_prenom.png:  <br> <br> 
-![plot](./img_readme/dossiers_img_2.PNG) <br>
- 
+![plot](./img_readme/dossiers_img_2.PNG) <br> <br><br>
+
+### Identifier une personne devant la webcam <br><br>
+Une fois le programme lancé, appuyez sur la touche 2, <br><br>
+
+Rentrez le nom de l'image de la personne à identifier devant la webcam, cette image doit être dans le dossier 'img' <br><br>
+![plot](./img_readme/webcam_fichier_img.PNG) <br><br><br>
+
+Si le nom du fichier rentré n'est pas dans le dossier img il vous sera proposé de le rentrer à nouveau:<br><br>
+![plot](./img_readme/erreur_nom_fichier.PNG) <br><br><br>
+
+Une fois que le nom du fichier entré est valide, la webcam s'active: <br><br>
+![plot](./img_readme/web.PNG) <br><br><br>
+
+Si la personne devant la webcam et celle sur la photo chargée ne sont pas les mêmes, alors ce message s'affiche:<br><br>
+![plot](./img_readme/shell_personne_differente.PNG) <br><br><br>
+
+Dans le cas contraire, ce message s'affiche: <br><br>
+![plot](./img_readme/shell_meme_personne.PNG) <br><br><br>
+
+Le chiffre au dessus de chaque phrase est la 'différence' qu'il y a entre le visage sur l'image et le visage devant la webcam. <br>
+J'ai fixé la tolérence à 0.6, c'est à dire que si cette différence est inférieur à 0.6, alors le programme considère que ceux sont les mêmes personnes. <br>
+Sinon il considère que ceux sont des personnes différentes.  <br> <br>
+
+Lorsque la fenêtre de la webcam est ouverte, appuyez sur la touche q pour l'arrêter.
 
 
