@@ -30,6 +30,9 @@ $ pip install imutils
 ```
 Une fois que ceci est fait, vous pouvez lancer le projet.
 
+## Utilisation
+![plot](./img_readme/famille.png)
+
 
  
 
