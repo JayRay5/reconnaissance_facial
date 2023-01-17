@@ -6,6 +6,7 @@ Et pour cela, quoi de mieux que d'en coder un? <br>
 ## Table des matières
 * [Présentation du projet](#présentation)
 * [Installation des librairies](#installation-des-librairies)
+  *[Installation des librairies](#installation-des-librairies)
 * [Utilisation](#utilisation)
 
 ## Présentation
