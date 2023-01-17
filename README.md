@@ -44,19 +44,19 @@ Rentrez le nom de l'image placée dans le dossier avec l'extension du fichier (.
 
 ![plot](./img_readme/nom_fichier.PNG) <br> <br><br>
 
-Une fois que cela est fait l'image que vous aurez tapés s'ouvrira dans une fenêtre:  <br><br>
+Une fois que cela est fait l'image que vous aurez rentré s'ouvrira dans une fenêtre:  <br><br>
 
 ![plot](./img_readme/famille_flou.png)  <br><br>
 (J'ai volontairement flouté les visages qui ne sont pas le mien) <br> <br>
 
-Puis lorsque vous l'aurez fermée, une deuxième s'ouvrira avec les visages détectés encadrés en bleu:  <br> <br>
+Puis lorsque vous l'aurez fermé, une deuxième s'ouvrira avec les visages détectés encadrés en bleu:  <br> <br>
 
 ![plot](./img_readme/famille_detect_flou.png)  <br> <br> <br>
 
 Ensuite une image s'ouvrira avec le premier visage détecté:  <br><br>
 ![plot](./img_readme/img_coupee.PNG)  <br> <br> <br>
 
-Une fois que vous aurez fermés la fenêtre, vous devrez entrer le nom et le prenom de la personne:  <br> <br>
+Lorsque que vous aurez fermé la fenêtre, vous devrez entrer le nom et le prenom de la personne:  <br> <br>
 ![plot](./img_readme/shell_nom_prenom.PNG)  <br> <br> <br>
 
 Une fois cela fait, la même chose vous sera demandée pour chaque visage. <br> <br>
@@ -82,9 +82,8 @@ Si la personne devant la webcam et celle sur la photo chargée ne sont pas les m
 Dans le cas contraire, ce message s'affiche: <br><br>
 ![plot](./img_readme/shell_meme_personne.PNG) <br><br><br>
 
-Le chiffre au dessus de chaque phrase est la différence qu'il y a entre le visage sur l'image et le visage devant la webcam. <br>
+Le chiffre au dessus de chaque phrase est la 'différence' qu'il y a entre le visage sur l'image et le visage devant la webcam. <br>
 J'ai fixé la tolérence à 0.6, c'est à dire que si cette différence est inférieur à 0.6, alors le programme considère que ceux sont les mêmes personnes. <br>
 Sinon il considère que ceux sont des personnes différentes.  <br> <br>
 
-Attention, lorsque le visage devant la webcam est trop de profil ou un peu caché par un obstacle, la différnce avec l'image enregistrée augmente et le programme peut indiquer que ce ne sont pas les mêmes personnes.
 
