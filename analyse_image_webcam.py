@@ -9,8 +9,6 @@ from imutils import face_utils
 import numpy as np
 import dlib
 import cv2 as cv
-import sys
-sys.path.append('D:\WpSystem\S-1-5-21-992357890-2830550148-1038233672-1001/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages')
 
 face_cascade = cv.CascadeClassifier(
     cv.data.haarcascades + 'haarcascade_frontalface_alt.xml')

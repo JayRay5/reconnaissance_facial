@@ -5,8 +5,6 @@ Created on Tue Nov  3 12:23:36 2020
 @author: Rayane Jay Bencharef
 """
 
-import sys
-sys.path.append('D:\WpSystem\S-1-5-21-992357890-2830550148-1038233672-1001/AppData/Local/Packages/PythonSoftwareFoundation.Python.3.9_qbz5n2kfra8p0/LocalCache/local-packages/Python39/site-packages')
 
 
 import cv2 as cv
