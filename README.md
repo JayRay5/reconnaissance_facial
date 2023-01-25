@@ -17,7 +17,7 @@ Il possède deux fonctionnalitées:
 ## Installation des librairies
 Pour installer ce projet, vous devrez tout d'abord suivre ces étapes:
 
-* Allez sur ce site et suivre les instructions afin d'installer cmake qui est nécessaire pour l'utilisation d'une des bibliothèques
+* Allez sur <a href="https://www.geeksforgeeks.org/how-to-install-dlib-library-for-python-in-windows-10/">ce site </a> et suivre les instructions afin d'installer cmake qui est nécessaire pour l'utilisation d'une des bibliothèques
 * Ensuite une fois que c'est fait, si vous avez dejà installés Python, vous pouvez executer les commandes ci dessous dans votre terminal:
 
 ```
