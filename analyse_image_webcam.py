@@ -26,7 +26,6 @@ pose_predictor_68_point = dlib.shape_predictor(
 # detetecte les visages sur l'images, repère les landmarks, calcule un ou des vecteur(s) qui décrit/décrivent le ou les visages détectés
 # retourne une liste de visages encodés, une liste de visage (image) et une liste de landmarks
 def analyzeFace(image):
-
     face_encoding_list = []
     landmarks_list = []
 
@@ -37,10 +36,9 @@ def analyzeFace(image):
         grey = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
         landmarks = predictor(grey, face)
         landmarks_list.append(face_utils.shape_to_np(landmarks))
-
         # calcule un vecteur de 128 de dimension qui décrit le visage
         face_encoding_list.append(
-            np.array(face_encoder.compute_face_descriptor(image, landmarks)))
+            np.array(face_encoder.compute_face_descriptor(image.astype(np.uint8), landmarks)))
 
     return (face_encoding_list, faces, landmarks_list)
 
@@ -50,7 +48,7 @@ def analyzeFace(image):
 # calcule la différence des normes entre les deux vecteurs des deux images, en fonction du résultat et de la marge d'erreur (tolérence)
 # indique si le visage en paramètre et celui analysé sont les même ou pas
 def comparImage(face_encoding_list, faces, landmarks_list, imageChoisis):
-
+    msg=""
     try:
         face_encoding_list = face_encoding_list[0].reshape(
             face_encoding_list[0].shape[0], 1)
@@ -63,14 +61,18 @@ def comparImage(face_encoding_list, faces, landmarks_list, imageChoisis):
         print(vectors)
         tolerance = 0.6
         if (vectors <= tolerance):
-            print("[INFO] Même personne que l'image choisis")
+            msg="[INFO] Meme personne que l'image choisis"
+            print(msg)
+
         else:
-            print("[INFO] Personne différente")
+            msg="[INFO] Personne differente"
+            print(msg)
             
     #Afin d'éviter une erreur lorsqu'il n'y a pas de visage devant la webcam
     except IndexError:
-
-        print("[INFO] Pas de visage(s) détecté(s)")
+        msg = "[INFO] Pas de visage(s) detecte(s)"
+        print(msg)
+    return msg
 
 #fonction qui permet de comparer les visages de la webcam à ceux sur l'image choisis par l'utilisateur
 def identify():
@@ -97,12 +99,19 @@ def identify():
 
         # on analyse les images de la webcam afin de voir si un visage est présent,
         # si c'est le cas, ce dernier, un vecteur le caractérisant ainsi que les landmarks sont retournés
-        face_encoding_list_unknown, faces_unknown, landmarks_list_unknows = analyzeFace(
+        face_encoding_list_unknown, face_unknown, landmarks_list_unknows = analyzeFace(
             rgb_small_frame)
 
         # on injecte les données de la webcam dans les fonctions d'identification
-        comparImage(face_encoding_list_unknown, faces_unknown,
+        msg = comparImage(face_encoding_list_unknown, face_unknown,
                     landmarks_list_unknows, imageChoisis)
+        
+        if len(landmarks_list_unknows) > 0:
+            for (x, y) in landmarks_list_unknows[0]:
+                cv.circle(frame, (x, y), 1, (0, 0, 255), -1)
+
+        cv.rectangle(frame, (0, frame.shape[1]-250), ( frame.shape[0]-100, frame.shape[1]), (0,0,0), -1)
+        cv.putText(frame, msg,  (0,int((frame.shape[1]-200))), cv.FONT_HERSHEY_SIMPLEX, 0.4,(255, 255, 255))
         cv.imshow('Identification', frame)
         
         #condition afin de fermer la webcam
